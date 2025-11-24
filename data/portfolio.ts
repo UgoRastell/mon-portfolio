@@ -1,7 +1,8 @@
 export const DATA = {
-  name: "Ton Prénom",
+  name: "Ugo Rastell",
   title: "Développeur Web & Créatif",
   description: "Je conçois des expériences web minimalistes et performantes.",
+  avatarUrl: "/me.jpg",
   projects: [
     {
       id: 1,
