@@ -16,12 +16,12 @@ export default function Projects() {
                                 {project.title}
                             </h3>
                             {/* Petite flèche qui bouge au survol */}
-                            <span className="text-zinc-500 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300">↗</span>
+                            <span className="text-zinc-400 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300">↗</span>
                         </div>
-                        <p className="text-zinc-400 text-sm mb-4">{project.desc}</p>
+                        <p className="text-zinc-300 text-sm mb-4">{project.desc}</p>
                         <div className="flex gap-2 flex-wrap">
                             {project.tech.map((t) => (
-                                <span key={t} className="text-xs px-2 py-1 rounded-md bg-white/10 text-zinc-300">
+                                <span key={t} className="text-xs px-2 py-1 rounded-md bg-white/10 text-zinc-200">
                                     {t}
                                 </span>
                             ))}

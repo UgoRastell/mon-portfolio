@@ -16,7 +16,7 @@ export default function Hero() {
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
                         {DATA.title}
                     </h1>
-                    <p className="text-xl text-zinc-400 max-w-lg mx-auto md:mx-0">
+                    <p className="text-xl text-zinc-300 max-w-lg mx-auto md:mx-0">
                         {DATA.description}
                     </p>
                 </div>
