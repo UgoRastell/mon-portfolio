@@ -40,6 +40,11 @@ export const DATA = {
       period: "2015 - 2018",
     },
   ],
+  socials: {
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
+    twitter: "https://x.com",
+  },
   projects: [
     {
       id: 1,

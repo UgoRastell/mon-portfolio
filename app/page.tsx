@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
         <Experience />
         <Education />
         <Projects />
-        {/* Tu peux ajouter <About /> et <Footer /> ici plus tard */}
-        <div className="h-20"></div> {/* Espace vide en bas */}
+        <Footer />
+        <div className="h-10"></div>
       </div>
     </main>
   );
