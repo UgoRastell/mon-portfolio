@@ -7,8 +7,10 @@ export default function Header() {
             <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
                 <span className="font-bold text-lg tracking-tight">{DATA.name}.</span>
                 <nav className="flex gap-6 text-sm font-medium text-zinc-400">
+                    <Link href="#skills" className="hover:text-white transition-colors">Compétences</Link>
                     <Link href="#projects" className="hover:text-white transition-colors">Projets</Link>
                     <Link href="#about" className="hover:text-white transition-colors">À propos</Link>
+                    <Link href="#education" className="hover:text-white transition-colors">Formation</Link>
                     <Link href="mailto:urastell@protonmail.com" className="hover:text-white transition-colors">Contact</Link>
                 </nav>
             </div>
