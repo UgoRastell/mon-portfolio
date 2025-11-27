@@ -1,13 +1,51 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-geist-sans);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #09090b;
+  
+  /* Primary Accent */
+  --primary: #000000; 
+  --primary-foreground: #ffffff;
+  
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
+  
+  --radius: 0rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  /* Lissage des polices pour le côté "Clean" */
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Utility for Hard Shadows */
+.shadow-bold {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+.shadow-bold-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease-in-out;
 }

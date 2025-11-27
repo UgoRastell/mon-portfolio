@@ -1,18 +1,21 @@
 import { DATA } from "@/data/portfolio";
+import { Card } from "./ui/Card";
 
 export default function Education() {
     return (
         <section id="education" className="py-20">
-            <h2 className="text-2xl font-semibold mb-8 text-zinc-900">Formation</h2>
-            <div className="space-y-8">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Formation</h2>
+            <div className="grid gap-8">
                 {DATA.education.map((edu, index) => (
-                    <div key={index} className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-zinc-200 pb-6 last:border-0 last:pb-0">
+                    <Card key={index} className="flex flex-col md:flex-row items-start md:items-center justify-between hover:translate-x-2 transition-transform">
                         <div>
-                            <h3 className="text-xl font-medium text-zinc-900">{edu.school}</h3>
-                            <p className="text-zinc-600 mt-1">{edu.degree}</p>
+                            <h3 className="text-2xl font-bold text-black">{edu.school}</h3>
+                            <p className="text-lg text-zinc-600 font-medium mt-2">{edu.degree}</p>
                         </div>
-                        <span className="text-sm text-zinc-500 font-mono mt-2 sm:mt-0">{edu.period}</span>
-                    </div>
+                        <span className="mt-4 md:mt-0 text-lg font-bold text-black border-b-4 border-black pb-1">
+                            {edu.period}
+                        </span>
+                    </Card>
                 ))}
             </div>
         </section>

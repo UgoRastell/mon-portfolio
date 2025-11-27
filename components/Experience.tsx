@@ -1,20 +1,26 @@
 import { DATA } from "@/data/portfolio";
+import { Card } from "./ui/Card";
 
 export default function Experience() {
     return (
         <section id="experience" className="py-20">
-            <h2 className="text-2xl font-semibold mb-8 text-zinc-900">Expérience</h2>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Expérience</h2>
             <div className="space-y-8">
                 {DATA.experience.map((exp, index) => (
-                    <div key={index} className="relative pl-8 border-l border-zinc-200 last:border-0">
-                        <span className="absolute top-0 left-[-5px] w-2.5 h-2.5 rounded-full bg-zinc-400 ring-4 ring-white" />
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                            <h3 className="text-xl font-medium text-zinc-900">{exp.company}</h3>
-                            <span className="text-sm text-zinc-500 font-mono">{exp.period}</span>
+                    <Card key={index} className="flex flex-col md:flex-row gap-6 md:items-start justify-between group hover:border-l-[12px] transition-all duration-200">
+                        <div className="flex-1">
+                            <h3 className="text-2xl font-bold text-black">{exp.company}</h3>
+                            <p className="text-xl font-semibold text-zinc-600 mt-1">{exp.role}</p>
+                            <p className="text-base text-zinc-800 mt-4 leading-relaxed max-w-prose">
+                                {exp.description}
+                            </p>
                         </div>
-                        <p className="text-zinc-700 mb-2">{exp.role}</p>
-                        <p className="text-zinc-600 text-sm max-w-2xl">{exp.description}</p>
-                    </div>
+                        <div className="shrink-0">
+                            <span className="inline-block bg-black text-white font-bold px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                                {exp.period}
+                            </span>
+                        </div>
+                    </Card>
                 ))}
             </div>
         </section>

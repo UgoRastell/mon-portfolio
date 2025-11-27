@@ -9,18 +9,18 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white">
       <Header />
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <Hero />
         <About />
         <Skills />
         <Experience />
         <Education />
         <Projects />
-        <Footer />
-        <div className="h-10"></div>
+        <div className="h-20"></div>
       </div>
+      <Footer />
     </main>
   );
 }
