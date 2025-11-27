@@ -16,16 +16,14 @@ export default function Hero() {
                     className="space-y-8"
                 >
                     <div className="space-y-4">
-                        <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
-                            {DATA.title.split(" ").map((word, i) => (
-                                <span key={i} className="block">{word}</span>
-                            ))}
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none uppercase text-balance">
+                            {DATA.title}
                         </h1>
                         <p className="text-xl md:text-2xl font-medium text-zinc-800 max-w-lg border-l-4 border-black pl-6 py-2">
                             {DATA.description}
                         </p>
                     </div>
-                    
+
                     <div className="flex flex-wrap gap-4">
                         <Link href="#projects">
                             <Button className="text-lg px-8 py-6">
