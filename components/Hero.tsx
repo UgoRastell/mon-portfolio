@@ -25,14 +25,13 @@ export default function Hero() {
             opacity: 1,
             transition: {
                 duration: 0.8,
-                ease: [0.2, 0.65, 0.3, 0.9],
             },
         },
     };
 
     return (
         <section className="min-h-screen flex flex-col justify-center pt-20 md:pt-32 pb-12">
-            <motion.div 
+            <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -60,13 +59,13 @@ export default function Hero() {
 
                 {/* Bottom Section: Description, Avatar, Buttons */}
                 <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start mt-8 border-t-2 border-zinc-100 pt-8">
-                    
+
                     {/* Description & Buttons */}
                     <motion.div variants={itemVariants} className="md:col-span-7 space-y-8">
                         <p className="text-xl md:text-2xl font-medium text-zinc-600 max-w-2xl leading-relaxed">
                             {DATA.description}
                         </p>
-                        
+
                         <div className="flex flex-wrap gap-4">
                             <Link href="#projects">
                                 <Button className="text-lg px-8 py-6">
