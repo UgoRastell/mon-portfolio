@@ -41,7 +41,7 @@ export const DATA = {
     },
   ],
   socials: {
-    github: "https://github.com",
+    github: "https://github.com/UgoRastell",
     linkedin: "https://linkedin.com",
   },
   projects: [
