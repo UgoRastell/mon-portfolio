@@ -43,8 +43,6 @@ export default function Skills() {
                         whileHover={{
                             scale: 1.1,
                             rotate: index % 2 === 0 ? -3 : 3,
-                            backgroundColor: "#000",
-                            color: "#fff",
                             transition: { duration: 0.2 }
                         }}
                         className="cursor-pointer relative group"
