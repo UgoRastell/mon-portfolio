@@ -1,9 +1,9 @@
 'use client';
 import { DATA } from "@/data/portfolio";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Skills() {
-    const container = {
+    const container: Variants = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
@@ -13,11 +13,11 @@ export default function Skills() {
         }
     };
 
-    const item = {
+    const item: Variants = {
         hidden: { opacity: 0, y: 50, rotate: 10 },
-        show: { 
-            opacity: 1, 
-            y: 0, 
+        show: {
+            opacity: 1,
+            y: 0,
             rotate: 0,
             transition: { type: "spring", stiffness: 260, damping: 20 }
         }
@@ -28,8 +28,8 @@ export default function Skills() {
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-16 text-center md:text-left">
                 Compétences
             </h2>
-            
-            <motion.div 
+
+            <motion.div
                 variants={container}
                 initial="hidden"
                 whileInView="show"
@@ -37,11 +37,11 @@ export default function Skills() {
                 className="flex flex-wrap gap-4 justify-center md:justify-start"
             >
                 {DATA.skills.map((skill, index) => (
-                    <motion.div 
-                        key={skill} 
+                    <motion.div
+                        key={skill}
                         variants={item}
-                        whileHover={{ 
-                            scale: 1.1, 
+                        whileHover={{
+                            scale: 1.1,
                             rotate: index % 2 === 0 ? -3 : 3,
                             backgroundColor: "#000",
                             color: "#fff",
