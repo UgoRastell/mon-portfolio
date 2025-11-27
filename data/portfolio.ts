@@ -43,7 +43,6 @@ export const DATA = {
   socials: {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
-    twitter: "https://x.com",
   },
   projects: [
     {

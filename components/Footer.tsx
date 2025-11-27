@@ -1,5 +1,5 @@
 import { DATA } from "@/data/portfolio";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -18,10 +18,6 @@ export default function Footer() {
                     <Link href={DATA.socials.linkedin} target="_blank" className="text-black hover:scale-110 transition-transform bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
                         <Linkedin size={24} />
                         <span className="sr-only">LinkedIn</span>
-                    </Link>
-                    <Link href={DATA.socials.twitter} target="_blank" className="text-black hover:scale-110 transition-transform bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
-                        <Twitter size={24} />
-                        <span className="sr-only">Twitter</span>
                     </Link>
                 </div>
             </div>
