@@ -28,12 +28,12 @@ export default function CV() {
         <div className="p-6 md:p-8 flex flex-col gap-5 h-full">
 
           {/* Header */}
-          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-black pb-5 shrink-0">
+          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-4 border-black pb-5 shrink-0">
             <div className="space-y-2">
               <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">{DATA.name}</h1>
-              <p className="text-lg md:text-xl font-medium text-zinc-600">{DATA.title}</p>
+              <p className="text-lg md:text-xl font-bold text-zinc-800">{DATA.title}</p>
 
-              <div className="flex flex-wrap gap-4 mt-4 text-sm font-medium text-zinc-600">
+              <div className="flex flex-wrap gap-4 mt-4 text-sm font-bold text-zinc-800">
                 {/* Note: You might want to add email/phone to DATA if you want them displayed */}
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
@@ -73,42 +73,51 @@ export default function CV() {
             <div className="md:col-span-2 space-y-8">
               {/* Profile */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Profil</h2>
-                <p className="text-zinc-600 text-sm leading-relaxed text-justify">
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
+                  <span className="bg-black text-white px-2 py-0.5 text-sm">01</span>
+                  Profil
+                </h2>
+                <p className="text-zinc-700 text-sm leading-relaxed text-justify font-medium">
                   {DATA.about}
                 </p>
               </section>
 
               {/* Experience */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Expérience Professionnelle</h2>
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
+                  <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
+                  Expérience
+                </h2>
                 <div className="space-y-5">
                   {DATA.experience.map((exp, i) => (
-                    <div key={i} className="relative pl-4 border-l-2 border-zinc-200">
+                    <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                        <h3 className="font-bold text-sm">{exp.role}</h3>
-                        <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded">{exp.period}</span>
+                        <h3 className="font-black text-sm uppercase">{exp.role}</h3>
+                        <span className="text-[10px] font-bold text-black bg-zinc-100 border border-black px-2 py-0.5 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
                       </div>
-                      <div className="text-xs font-medium text-zinc-700 mb-1.5">{exp.company}</div>
-                      <p className="text-xs text-zinc-600">{exp.description}</p>
+                      <div className="text-xs font-bold text-zinc-700 mb-1.5">{exp.company}</div>
+                      <p className="text-xs text-zinc-600 font-medium">{exp.description}</p>
                     </div>
                   ))}
                 </div>
               </section>
 
-              {/* Projects (Optional selection for CV) */}
+              {/* Projects */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Projets Récents</h2>
-                <div className="space-y-3">
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
+                  <span className="bg-black text-white px-2 py-0.5 text-sm">03</span>
+                  Projets
+                </h2>
+                <div className="space-y-4">
                   {DATA.projects.slice(0, 3).map((project) => (
-                    <div key={project.id}>
+                    <div key={project.id} className="border-2 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
                       <div className="flex items-baseline justify-between mb-1">
-                        <h3 className="font-bold text-sm">{project.title}</h3>
+                        <h3 className="font-black text-sm uppercase">{project.title}</h3>
                       </div>
-                      <p className="text-[10px] text-zinc-600 mb-1.5">{project.desc}</p>
+                      <p className="text-[10px] text-zinc-700 mb-2 font-medium">{project.desc}</p>
                       <div className="flex flex-wrap gap-1">
                         {project.tech.map((t) => (
-                          <span key={t} className="text-[9px] border border-zinc-200 px-1 py-0.5 rounded bg-zinc-50 text-zinc-500">
+                          <span key={t} className="text-[9px] font-bold border border-black px-1 py-0.5 bg-white">
                             {t}
                           </span>
                         ))}
@@ -123,13 +132,13 @@ export default function CV() {
             <div className="space-y-8">
               {/* Education */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Formation</h2>
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4">Formation</h2>
                 <div className="space-y-5">
                   {DATA.education.map((edu, i) => (
-                    <div key={i}>
+                    <div key={i} className="border-l-2 border-black pl-3">
                       <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
-                      <div className="text-xs text-zinc-700 mb-0.5">{edu.school}</div>
-                      <span className="text-[10px] text-zinc-500">{edu.period}</span>
+                      <div className="text-xs font-medium text-zinc-700 mb-0.5">{edu.school}</div>
+                      <span className="text-[10px] text-zinc-500 font-mono">{edu.period}</span>
                     </div>
                   ))}
                 </div>
@@ -137,27 +146,27 @@ export default function CV() {
 
               {/* Skills */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Compétences</h2>
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences</h2>
                 <div className="flex flex-wrap gap-1.5">
                   {DATA.skills.map((skill) => (
-                    <span key={skill} className="text-xs font-medium border border-black px-2 py-0.5 bg-zinc-50">
+                    <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-1 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                       {skill}
                     </span>
                   ))}
                 </div>
               </section>
 
-              {/* Languages / Other (Hardcoded for now as not in schema) */}
+              {/* Languages */}
               <section>
-                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Langues</h2>
-                <ul className="space-y-1.5 text-xs text-zinc-600">
-                  <li className="flex justify-between">
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Langues</h2>
+                <ul className="space-y-2 text-xs font-medium text-zinc-800">
+                  <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
                     <span>Français</span>
-                    <span className="font-medium text-black">Natif</span>
+                    <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Natif</span>
                   </li>
-                  <li className="flex justify-between">
+                  <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
                     <span>Anglais</span>
-                    <span className="font-medium text-black">Professionnel</span>
+                    <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Pro</span>
                   </li>
                 </ul>
               </section>
