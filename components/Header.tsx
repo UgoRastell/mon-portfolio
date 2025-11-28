@@ -13,6 +13,7 @@ export default function Header() {
                     <Link href="#skills" className="hover:underline decoration-2 underline-offset-4">Skills</Link>
                     <Link href="#projects" className="hover:underline decoration-2 underline-offset-4">Projets</Link>
                     <Link href="#experience" className="hover:underline decoration-2 underline-offset-4">Expérience</Link>
+                    <Link href="/cv" className="hover:underline decoration-2 underline-offset-4 text-zinc-500">CV</Link>
                 </nav>
                 <Link 
                     href="mailto:urastell@protonmail.com" 
