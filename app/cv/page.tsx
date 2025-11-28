@@ -68,117 +68,117 @@ export default function CV() {
             </div>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Main Column (Left) */}
-            <div className="md:col-span-2 space-y-8">
-              {/* Profile */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
-                  <span className="bg-black text-white px-2 py-0.5 text-sm">01</span>
-                  Profil
-                </h2>
-                <p className="text-zinc-700 text-sm leading-relaxed text-justify font-medium">
-                  {DATA.about}
-                </p>
-              </section>
+          <div className="flex flex-col gap-8 h-full">
+            {/* Profile */}
+            <section>
+              <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
+                <span className="bg-black text-white px-2 py-0.5 text-sm">01</span>
+                Profil
+              </h2>
+              <p className="text-zinc-700 text-sm leading-relaxed text-justify font-medium">
+                {DATA.about}
+              </p>
+            </section>
 
-              {/* Experience */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
-                  <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
-                  Expérience
-                </h2>
-                <div className="space-y-5">
-                  {DATA.experience.map((exp, i) => (
-                    <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                        <h3 className="font-black text-sm uppercase">{exp.role}</h3>
-                        <span className="text-[10px] font-bold text-black bg-zinc-100 border border-black px-2 py-0.5 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 flex-1">
+              {/* Main Column (Left) */}
+              <div className="md:col-span-2 flex flex-col gap-8">
+                {/* Experience */}
+                <section className="flex-1">
+                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
+                    <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
+                    Expérience
+                  </h2>
+                  <div className="space-y-6">
+                    {DATA.experience.map((exp, i) => (
+                      <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                          <h3 className="font-black text-sm uppercase">{exp.role}</h3>
+                          <span className="text-[10px] font-bold text-black bg-zinc-100 border border-black px-2 py-0.5 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
+                        </div>
+                        <div className="text-xs font-bold text-zinc-700 mb-2">{exp.company}</div>
+                        <p className="text-xs text-zinc-600 font-medium leading-relaxed">{exp.description}</p>
                       </div>
-                      <div className="text-xs font-bold text-zinc-700 mb-1.5">{exp.company}</div>
-                      <p className="text-xs text-zinc-600 font-medium">{exp.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-{/* Projects Section Removed */}
-            </div>
-
-            {/* Sidebar Column (Right) */}
-            <div className="space-y-8">
-              {/* Education */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4">Formation</h2>
-                <div className="space-y-5">
-                  {DATA.education.map((edu, i) => (
-                    <div key={i} className="border-l-2 border-black pl-3">
-                      <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
-                      <div className="text-xs font-medium text-zinc-700 mb-0.5">{edu.school}</div>
-                      <span className="text-[10px] text-zinc-500 font-mono">{edu.period}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Skills */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences Techniques</h2>
-                <div className="grid grid-cols-1 gap-4">
-
-                  {/* Frontend */}
-                  <div>
-                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Front-end</h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {DATA.technicalSkills.frontend.map((skill) => (
-                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                    ))}
                   </div>
+                </section>
+              </div>
 
-                  {/* Backend */}
-                  <div>
-                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Back-end</h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {DATA.technicalSkills.backend.map((skill) => (
-                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+              {/* Sidebar Column (Right) */}
+              <div className="flex flex-col gap-8">
+                {/* Education */}
+                <section>
+                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4">Formation</h2>
+                  <div className="space-y-5">
+                    {DATA.education.map((edu, i) => (
+                      <div key={i} className="border-l-2 border-black pl-3">
+                        <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
+                        <div className="text-xs font-medium text-zinc-700 mb-0.5">{edu.school}</div>
+                        <span className="text-[10px] text-zinc-500 font-mono">{edu.period}</span>
+                      </div>
+                    ))}
                   </div>
+                </section>
 
-                  {/* Tools */}
-                  <div>
-                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Outils & Autres</h3>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[...DATA.technicalSkills.tools, ...DATA.technicalSkills.other].map((skill) => (
-                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                          {skill}
-                        </span>
-                      ))}
+                {/* Skills */}
+                <section className="flex-1">
+                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences</h2>
+                  <div className="flex flex-col gap-5">
+
+                    {/* Frontend */}
+                    <div>
+                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Front-end</h3>
+                      <div className="flex flex-wrap gap-1.5">
+                        {DATA.technicalSkills.frontend.map((skill) => (
+                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
+
+                    {/* Backend */}
+                    <div>
+                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Back-end</h3>
+                      <div className="flex flex-wrap gap-1.5">
+                        {DATA.technicalSkills.backend.map((skill) => (
+                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Tools */}
+                    <div>
+                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Outils & Autres</h3>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[...DATA.technicalSkills.tools, ...DATA.technicalSkills.other].map((skill) => (
+                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                   </div>
+                </section>
 
-                </div>
-              </section>
-
-              {/* Languages */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Langues</h2>
-                <ul className="space-y-2 text-xs font-medium text-zinc-800">
-                  <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
-                    <span>Français</span>
-                    <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Natif</span>
-                  </li>
-                  <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
-                    <span>Anglais</span>
-                    <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Pro</span>
-                  </li>
-                </ul>
-              </section>
+                {/* Languages */}
+                <section>
+                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Langues</h2>
+                  <ul className="space-y-2 text-xs font-medium text-zinc-800">
+                    <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
+                      <span>Français</span>
+                      <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Natif</span>
+                    </li>
+                    <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
+                      <span>Anglais</span>
+                      <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Pro</span>
+                    </li>
+                  </ul>
+                </section>
+              </div>
             </div>
           </div>
         </div>
