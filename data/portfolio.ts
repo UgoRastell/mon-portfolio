@@ -17,9 +17,15 @@ export const DATA = {
   experience: [
     {
       company: "Comité régional de Normandie de Gymnastique",
-      role: "Développeur Web & Créateur de Contenu",
+      role: "Développeur Web",
+      period: "2022 - 2026",
+      description: "Gestion et maintenance des sites WordPress, développement d'outils internes sur mesure.",
+    },
+    {
+      company: "Comité régional de Normandie de Gymnastique",
+      role: "Créateur de Contenu Vidéo & Photo",
       period: "Nov 2021 - Juil 2022",
-      description: "Gestion et maintenance des sites WordPress, développement d'outils internes sur mesure. Prise de vues photos et vidéos, montage d'un magazine hebdomadaire diffusé sur YouTube et les réseaux sociaux.",
+      description: "Prise de vues photos et vidéos, montage d'un magazine hebdomadaire diffusé sur YouTube et les réseaux sociaux.",
     },
     {
       company: "Mairie de Petit Couronne",
