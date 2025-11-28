@@ -24,11 +24,11 @@ export default function CV() {
       </div>
 
       {/* A4 Page Container */}
-      <div className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] print:h-[297mm] overflow-hidden">
-        <div className="p-6 md:p-8 flex flex-col gap-6 h-full min-h-[297mm]">
+      <div className="w-[210mm] h-[297mm] mx-auto bg-white shadow-2xl print:shadow-none print:w-[210mm] print:h-[297mm] overflow-hidden relative">
+        <div className="p-6 md:p-8 flex flex-col gap-5 h-full">
 
           {/* Header */}
-          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-black pb-6">
+          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-black pb-5 shrink-0">
             <div className="space-y-2">
               <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">{DATA.name}</h1>
               <p className="text-lg md:text-xl font-medium text-zinc-600">{DATA.title}</p>
@@ -170,13 +170,16 @@ export default function CV() {
       <style jsx global>{`
         @media print {
           @page {
+            size: A4;
             margin: 0;
-            size: auto;
           }
-          body {
+          html, body {
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
             background: white;
           }
-          /* Scale content to fit if needed, but maintain layout fidelity */
+          /* Force content to fit on one page if possible */
           .print\\:p-0 {
              padding: 0 !important;
           }
