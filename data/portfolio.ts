@@ -14,6 +14,12 @@ export const DATA = {
     "Gestion de Projet",
     "Anglais (écrit)",
   ],
+  technicalSkills: {
+    frontend: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "HTML / CSS"],
+    backend: ["PHP", "Symfony", "Dotnet (C#)", "WordPress"],
+    tools: ["Git", "GitHub", "Docker", "Figma"],
+    other: ["Gestion de Projet", "Anglais (écrit)", "Adobe Premiere Pro"]
+  },
   experience: [
     {
       company: "Comité régional de Normandie de Gymnastique",

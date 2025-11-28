@@ -146,13 +146,45 @@ export default function CV() {
 
               {/* Skills */}
               <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences</h2>
-                <div className="flex flex-wrap gap-1.5">
-                  {DATA.skills.map((skill) => (
-                    <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-1 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                      {skill}
-                    </span>
-                  ))}
+                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences Techniques</h2>
+                <div className="grid grid-cols-1 gap-4">
+
+                  {/* Frontend */}
+                  <div>
+                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Front-end</h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {DATA.technicalSkills.frontend.map((skill) => (
+                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Backend */}
+                  <div>
+                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Back-end</h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {DATA.technicalSkills.backend.map((skill) => (
+                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Tools */}
+                  <div>
+                    <h3 className="text-xs font-black uppercase mb-1.5 text-zinc-500">Outils & Autres</h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[...DATA.technicalSkills.tools, ...DATA.technicalSkills.other].map((skill) => (
+                        <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
               </section>
 
