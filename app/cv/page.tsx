@@ -24,14 +24,14 @@ export default function CV() {
       </div>
 
       {/* A4 Page Container */}
-      <div className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none overflow-hidden">
-        <div className="p-8 md:p-12 flex flex-col gap-8 h-full min-h-[297mm]">
+      <div className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] print:h-[297mm] overflow-hidden">
+        <div className="p-6 md:p-8 flex flex-col gap-6 h-full min-h-[297mm]">
 
           {/* Header */}
-          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-black pb-8">
+          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b-2 border-black pb-6">
             <div className="space-y-2">
-              <h1 className="text-4xl font-black uppercase tracking-tighter">{DATA.name}</h1>
-              <p className="text-xl font-medium text-zinc-600">{DATA.title}</p>
+              <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">{DATA.name}</h1>
+              <p className="text-lg md:text-xl font-medium text-zinc-600">{DATA.title}</p>
 
               <div className="flex flex-wrap gap-4 mt-4 text-sm font-medium text-zinc-600">
                 {/* Note: You might want to add email/phone to DATA if you want them displayed */}
@@ -68,12 +68,12 @@ export default function CV() {
             </div>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Main Column (Left) */}
-            <div className="md:col-span-2 space-y-10">
+            <div className="md:col-span-2 space-y-8">
               {/* Profile */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-4">Profil</h2>
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Profil</h2>
                 <p className="text-zinc-600 text-sm leading-relaxed text-justify">
                   {DATA.about}
                 </p>
@@ -81,16 +81,16 @@ export default function CV() {
 
               {/* Experience */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-6">Expérience Professionnelle</h2>
-                <div className="space-y-6">
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Expérience Professionnelle</h2>
+                <div className="space-y-5">
                   {DATA.experience.map((exp, i) => (
                     <div key={i} className="relative pl-4 border-l-2 border-zinc-200">
                       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                        <h3 className="font-bold">{exp.role}</h3>
-                        <span className="text-xs font-mono text-zinc-500 bg-zinc-100 px-2 py-1 rounded">{exp.period}</span>
+                        <h3 className="font-bold text-sm">{exp.role}</h3>
+                        <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded">{exp.period}</span>
                       </div>
-                      <div className="text-sm font-medium text-zinc-700 mb-2">{exp.company}</div>
-                      <p className="text-sm text-zinc-600">{exp.description}</p>
+                      <div className="text-xs font-medium text-zinc-700 mb-1.5">{exp.company}</div>
+                      <p className="text-xs text-zinc-600">{exp.description}</p>
                     </div>
                   ))}
                 </div>
@@ -98,17 +98,17 @@ export default function CV() {
 
               {/* Projects (Optional selection for CV) */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-6">Projets Récents</h2>
-                <div className="space-y-4">
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Projets Récents</h2>
+                <div className="space-y-3">
                   {DATA.projects.slice(0, 3).map((project) => (
                     <div key={project.id}>
                       <div className="flex items-baseline justify-between mb-1">
                         <h3 className="font-bold text-sm">{project.title}</h3>
                       </div>
-                      <p className="text-xs text-zinc-600 mb-2">{project.desc}</p>
+                      <p className="text-[10px] text-zinc-600 mb-1.5">{project.desc}</p>
                       <div className="flex flex-wrap gap-1">
                         {project.tech.map((t) => (
-                          <span key={t} className="text-[10px] border border-zinc-200 px-1.5 py-0.5 rounded bg-zinc-50 text-zinc-500">
+                          <span key={t} className="text-[9px] border border-zinc-200 px-1 py-0.5 rounded bg-zinc-50 text-zinc-500">
                             {t}
                           </span>
                         ))}
@@ -120,16 +120,16 @@ export default function CV() {
             </div>
 
             {/* Sidebar Column (Right) */}
-            <div className="space-y-10">
+            <div className="space-y-8">
               {/* Education */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-6">Formation</h2>
-                <div className="space-y-6">
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-4">Formation</h2>
+                <div className="space-y-5">
                   {DATA.education.map((edu, i) => (
                     <div key={i}>
-                      <h3 className="font-bold text-sm leading-tight mb-1">{edu.degree}</h3>
-                      <div className="text-sm text-zinc-700 mb-1">{edu.school}</div>
-                      <span className="text-xs text-zinc-500">{edu.period}</span>
+                      <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
+                      <div className="text-xs text-zinc-700 mb-0.5">{edu.school}</div>
+                      <span className="text-[10px] text-zinc-500">{edu.period}</span>
                     </div>
                   ))}
                 </div>
@@ -137,10 +137,10 @@ export default function CV() {
 
               {/* Skills */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-4">Compétences</h2>
-                <div className="flex flex-wrap gap-2">
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Compétences</h2>
+                <div className="flex flex-wrap gap-1.5">
                   {DATA.skills.map((skill) => (
-                    <span key={skill} className="text-sm font-medium border border-black px-2 py-1 bg-zinc-50">
+                    <span key={skill} className="text-xs font-medium border border-black px-2 py-0.5 bg-zinc-50">
                       {skill}
                     </span>
                   ))}
@@ -149,8 +149,8 @@ export default function CV() {
 
               {/* Languages / Other (Hardcoded for now as not in schema) */}
               <section>
-                <h2 className="text-xl font-bold uppercase border-b border-zinc-200 pb-2 mb-4">Langues</h2>
-                <ul className="space-y-2 text-sm text-zinc-600">
+                <h2 className="text-lg font-bold uppercase border-b border-zinc-200 pb-1 mb-3">Langues</h2>
+                <ul className="space-y-1.5 text-xs text-zinc-600">
                   <li className="flex justify-between">
                     <span>Français</span>
                     <span className="font-medium text-black">Natif</span>
@@ -176,24 +176,16 @@ export default function CV() {
           body {
             background: white;
           }
-          /* Force content to fit on one page if possible */
+          /* Scale content to fit if needed, but maintain layout fidelity */
           .print\\:p-0 {
              padding: 0 !important;
           }
-           /* Reduce vertical rhythm for print */
-          h1 { font-size: 2rem !important; } /* 32px */
-          h2 { font-size: 1rem !important; margin-bottom: 0.5rem !important; padding-bottom: 0.25rem !important; }
-          h3 { font-size: 0.875rem !important; }
-          p, span, div { font-size: 0.8rem !important; }
           
-          /* Compact spacing */
-          header { padding-bottom: 1rem !important; margin-bottom: 1rem !important; }
-          section { margin-bottom: 1rem !important; }
-          .gap-8 { gap: 1rem !important; }
-          .gap-6 { gap: 0.75rem !important; }
-          .space-y-10 > * + * { margin-top: 1.5rem !important; }
-          .space-y-6 > * + * { margin-top: 0.75rem !important; }
-          .p-12 { padding: 1.5rem !important; }
+          /* Ensure background colors and borders print correctly */
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
         }
       `}</style>
     </div>
