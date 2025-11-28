@@ -1,214 +1,170 @@
-'use client';
+"use client";
 
 import { DATA } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Globe, MapPin, Printer, ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { Github, Linkedin, Mail, MapPin, Download, Globe } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function CV() {
+export default function CVPage() {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="min-h-screen bg-zinc-100 p-4 md:p-8 print:p-0 print:bg-white">
-      {/* Navigation & Print Button - Hidden in print */}
-      <div className="max-w-[210mm] mx-auto mb-8 flex justify-between items-center print:hidden">
-        <Link href="/">
-          <Button variant="outline" className="gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Retour au site
-          </Button>
-        </Link>
-        <Button onClick={() => window.print()} className="gap-2">
-          <Printer className="w-4 h-4" />
-          Imprimer le CV
+    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white">
+      {/* Print Button */}
+      <div className="print-hidden fixed bottom-8 right-8 z-50">
+        <Button onClick={handlePrint} className="gap-2">
+          <Download className="w-4 h-4" />
+          Télécharger PDF
         </Button>
       </div>
 
-      {/* A4 Page Container */}
-      <div className="w-[210mm] h-[297mm] mx-auto bg-white shadow-2xl print:shadow-none print:w-[210mm] print:h-[297mm] overflow-hidden relative">
-        <div className="p-6 md:p-8 print:p-[15mm] flex flex-col gap-4 h-full">
-
-          {/* Header */}
-          <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b-4 border-black pb-4 shrink-0">
-            <div className="space-y-1.5">
-              <h1 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">{DATA.name}</h1>
-              <p className="text-base md:text-lg font-bold text-zinc-800">{DATA.title}</p>
-
-              <div className="flex flex-wrap gap-3 mt-2 text-xs font-bold text-zinc-800">
-                {/* Note: You might want to add email/phone to DATA if you want them displayed */}
-                <div className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
-                  <span>Rouen, France</span>
-                </div>
-                {DATA.socials.linkedin && (
-                  <a href={DATA.socials.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-black transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                    <span>LinkedIn</span>
-                  </a>
-                )}
-                {DATA.socials.github && (
-                  <a href={DATA.socials.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-black transition-colors">
-                    <Github className="w-4 h-4" />
-                    <span>GitHub</span>
-                  </a>
-                )}
-                <a href="https://ugorastell.fr" className="flex items-center gap-1 hover:text-black transition-colors">
-                  <Globe className="w-4 h-4" />
-                  <span>ugorastell.fr</span>
-                </a>
-              </div>
+      {/* CV Container (A4) */}
+      <div className="bg-white w-full max-w-[210mm] min-h-[297mm] p-[10mm] shadow-bold border-2 border-black relative print:shadow-none print:border-none print:w-full print:h-full print:p-0 print:max-w-none">
+        
+        {/* Header */}
+        <header className="border-b-2 border-black pb-6 mb-6 flex justify-between items-start gap-6">
+          <div className="flex-1 space-y-4">
+            <div>
+              <h1 className="text-4xl font-black uppercase tracking-tight">{DATA.name}</h1>
+              <p className="text-xl font-bold text-gray-600 mt-1">{DATA.title}</p>
             </div>
+            
+            <p className="text-sm text-gray-600 max-w-md leading-relaxed">
+              {DATA.about}
+            </p>
 
-            <div className="relative w-24 h-24 shrink-0 hidden md:block">
-              <Image
-                src={DATA.avatarUrl || "/placeholder-user.jpg"}
-                alt={DATA.name}
-                fill
-                className="object-cover rounded-full border-2 border-black grayscale"
-              />
-            </div>
-          </header>
-
-          <div className="flex flex-col gap-6">
-            {/* Profile */}
-            <section>
-              <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-2 flex items-center gap-2">
-                <span className="bg-black text-white px-2 py-0.5 text-sm">01</span>
-                Profil
-              </h2>
-              <p className="text-zinc-700 text-xs leading-relaxed text-justify font-medium">
-                {DATA.about}
-              </p>
-            </section>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
-              {/* Main Column (Left) */}
-              <div className="md:col-span-2 flex flex-col gap-6 h-full justify-between">
-                {/* Experience */}
-                <section className="flex-1">
-                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
-                    <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
-                    Expérience
-                  </h2>
-                  <div className="space-y-3">
-                    {DATA.experience.map((exp, i) => (
-                      <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
-                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-0.5">
-                          <h3 className="font-black text-sm uppercase">{exp.role}</h3>
-                          <span className="text-[10px] font-bold text-black bg-zinc-100 border border-black px-2 py-0.5 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
-                        </div>
-                        <div className="text-xs font-bold text-zinc-700 mb-1">{exp.company}</div>
-                        <p className="text-[10px] text-zinc-600 font-medium leading-relaxed">{exp.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              </div>
-
-              {/* Sidebar Column (Right) */}
-              <div className="flex flex-col gap-5">
-                {/* Education */}
-                <section>
-                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Formation</h2>
-                  <div className="space-y-4">
-                    {DATA.education.map((edu, i) => (
-                      <div key={i} className="border-l-2 border-black pl-3">
-                        <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
-                        <div className="text-xs font-medium text-zinc-700 mb-0.5">{edu.school}</div>
-                        <span className="text-[10px] text-zinc-500 font-mono">{edu.period}</span>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Skills */}
-                <section>
-                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-2">Compétences</h2>
-                  <div className="flex flex-col gap-4">
-
-                    {/* Frontend */}
-                    <div>
-                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Front-end</h3>
-                      <div className="flex flex-wrap gap-1.5">
-                        {DATA.technicalSkills.frontend.map((skill) => (
-                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Backend */}
-                    <div>
-                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Back-end</h3>
-                      <div className="flex flex-wrap gap-1.5">
-                        {DATA.technicalSkills.backend.map((skill) => (
-                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Tools */}
-                    <div>
-                      <h3 className="text-xs font-black uppercase mb-2 text-zinc-500">Outils & Autres</h3>
-                      <div className="flex flex-wrap gap-1.5">
-                        {[...DATA.technicalSkills.tools, ...DATA.technicalSkills.other].map((skill) => (
-                          <span key={skill} className="text-xs font-bold border-2 border-black px-2 py-0.5 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-                </section>
-
-                {/* Languages */}
-                <section>
-                  <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-2">Langues</h2>
-                  <ul className="space-y-2 text-xs font-medium text-zinc-800">
-                    <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
-                      <span>Français</span>
-                      <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Natif</span>
-                    </li>
-                    <li className="flex justify-between items-center border-b border-dashed border-zinc-300 pb-1">
-                      <span>Anglais</span>
-                      <span className="font-bold bg-black text-white px-1.5 py-0.5 text-[10px]">Pro</span>
-                    </li>
-                  </ul>
-                </section>
-              </div>
+            <div className="flex flex-wrap gap-3 text-sm font-bold">
+              {DATA.socials.github && (
+                <Link href={DATA.socials.github} className="flex items-center gap-1 hover:underline">
+                  <Github className="w-4 h-4" />
+                  GitHub
+                </Link>
+              )}
+              {DATA.socials.linkedin && (
+                <Link href={DATA.socials.linkedin} className="flex items-center gap-1 hover:underline">
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
+                </Link>
+              )}
+              {/* Assuming location isn't in DATA explicitly but often nice to have, skipping if not present */}
             </div>
           </div>
+
+          <div className="relative w-32 h-32 border-2 border-black shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <Image
+              src={DATA.avatarUrl}
+              alt={DATA.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </header>
+
+        <div className="grid grid-cols-3 gap-8">
+          {/* Main Column */}
+          <div className="col-span-2 space-y-6">
+            {/* Experience */}
+            <section>
+              <h2 className="text-2xl font-black uppercase border-b-2 border-black mb-4 inline-block">Expérience</h2>
+              <div className="space-y-6">
+                {DATA.experience.map((role, index) => (
+                  <div key={index} className="relative pl-4 border-l-2 border-gray-200">
+                    <div className="absolute -left-[5px] top-2 w-2 h-2 bg-black rounded-full" />
+                    <div className="flex justify-between items-baseline mb-1">
+                      <h3 className="font-bold text-lg">{role.company}</h3>
+                      <span className="text-xs font-bold bg-black text-white px-2 py-0.5">{role.period}</span>
+                    </div>
+                    <p className="text-sm font-bold text-gray-600 mb-2">{role.role}</p>
+                    <p className="text-sm text-gray-600 text-justify">{role.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Projects */}
+            <section>
+              <h2 className="text-2xl font-black uppercase border-b-2 border-black mb-4 inline-block">Projets</h2>
+              <div className="space-y-4">
+                {DATA.projects.slice(0, 3).map((project) => (
+                  <div key={project.id} className="border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="font-bold">{project.title}</h3>
+                      {project.link && (
+                        <Link href={project.link} className="text-xs hover:underline flex items-center gap-1">
+                          <Globe className="w-3 h-3" />
+                          Voir
+                        </Link>
+                      )}
+                    </div>
+                    <p className="text-xs text-gray-600 mb-2">{project.desc}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="text-[10px] border border-black px-1 bg-gray-50">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Sidebar Column */}
+          <div className="space-y-6">
+            {/* Skills */}
+            <section>
+              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Compétences</h2>
+              <div className="flex flex-wrap gap-2">
+                {DATA.skills.map((skill, index) => (
+                  <span key={index} className="text-xs font-bold border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] bg-white block w-full text-center">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            {/* Technical Skills Detailed */}
+            <section>
+              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Technique</h2>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-sm font-bold mb-1">Frontend</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.frontend.join(", ")}</p>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold mb-1">Backend</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.backend.join(", ")}</p>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold mb-1">Outils</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.tools.join(", ")}</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Education */}
+            <section>
+              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Formation</h2>
+              <div className="space-y-4">
+                {DATA.education.map((edu, index) => (
+                  <div key={index} className="border-l-2 border-black pl-3">
+                    <h3 className="font-bold text-sm">{edu.school}</h3>
+                    <p className="text-xs text-gray-600">{edu.degree}</p>
+                    <p className="text-xs font-bold mt-1">{edu.period}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+        
+        {/* Footer for Print */}
+        <div className="hidden print:block fixed bottom-0 left-0 w-full text-center text-xs text-gray-400 py-2">
+          CV généré depuis le portfolio de {DATA.name}
         </div>
       </div>
-
-      {/* Print Styles Override */}
-      <style jsx global>{`
-        @media print {
-          @page {
-            size: A4;
-            margin: 0;
-          }
-          html, body {
-            width: 210mm;
-            height: 297mm;
-            overflow: hidden;
-            background: white;
-          }
-          /* Force content to fit on one page if possible */
-          .print\\:p-0 {
-             padding: 0 !important;
-          }
-          
-          /* Ensure background colors and borders print correctly */
-          * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
