@@ -37,8 +37,13 @@ export const DATA = {
   education: [
     {
       school: "Normandie Web School",
+      degree: "Master Manager de l’ingénierie numérique",
+      period: "2024 - 2026",
+    },
+    {
+      school: "Normandie Web School",
       degree: "Bachelor Chef de Projet Digital",
-      period: "2021 - Présent",
+      period: "2021 - 2024",
     },
     {
       school: "Lycée Blaise Pascal",
