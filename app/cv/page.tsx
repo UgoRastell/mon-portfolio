@@ -102,30 +102,7 @@ export default function CV() {
                 </div>
               </section>
 
-              {/* Projects */}
-              <section>
-                <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
-                  <span className="bg-black text-white px-2 py-0.5 text-sm">03</span>
-                  Projets
-                </h2>
-                <div className="space-y-4">
-                  {DATA.projects.slice(0, 3).map((project) => (
-                    <div key={project.id} className="border-2 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                      <div className="flex items-baseline justify-between mb-1">
-                        <h3 className="font-black text-sm uppercase">{project.title}</h3>
-                      </div>
-                      <p className="text-[10px] text-zinc-700 mb-2 font-medium">{project.desc}</p>
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.map((t) => (
-                          <span key={t} className="text-[9px] font-bold border border-black px-1 py-0.5 bg-white">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
+{/* Projects Section Removed */}
             </div>
 
             {/* Sidebar Column (Right) */}
