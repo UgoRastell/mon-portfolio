@@ -37,13 +37,6 @@ export default function Hero() {
                 animate="visible"
                 className="flex flex-col gap-8 md:gap-12"
             >
-                {/* Name Badge */}
-                <motion.div variants={itemVariants} className="flex">
-                    <span className="bg-black text-white px-4 py-2 text-sm md:text-base font-bold uppercase tracking-widest">
-                        {DATA.name}
-                    </span>
-                </motion.div>
-
                 {/* Main Content: Title + Avatar side-by-side */}
                 <div className="grid md:grid-cols-12 gap-6 items-center">
                     {/* Massive Title */}
@@ -51,7 +44,7 @@ export default function Hero() {
                         <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Développeur
                         </motion.h1>
-                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-black">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Web &
                         </motion.h1>
                         <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
