@@ -80,24 +80,24 @@ export default function CV() {
               </p>
             </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
               {/* Main Column (Left) */}
-              <div className="md:col-span-2 flex flex-col gap-6">
+              <div className="md:col-span-2 flex flex-col gap-6 h-full justify-between">
                 {/* Experience */}
-                <section>
+                <section className="flex-1">
                   <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
                     <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
                     Expérience
                   </h2>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {DATA.experience.map((exp, i) => (
                       <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
-                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-0.5">
                           <h3 className="font-black text-sm uppercase">{exp.role}</h3>
                           <span className="text-[10px] font-bold text-black bg-zinc-100 border border-black px-2 py-0.5 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
                         </div>
-                        <div className="text-xs font-bold text-zinc-700 mb-2">{exp.company}</div>
-                        <p className="text-xs text-zinc-600 font-medium leading-relaxed">{exp.description}</p>
+                        <div className="text-xs font-bold text-zinc-700 mb-1">{exp.company}</div>
+                        <p className="text-[10px] text-zinc-600 font-medium leading-relaxed">{exp.description}</p>
                       </div>
                     ))}
                   </div>
@@ -105,7 +105,7 @@ export default function CV() {
               </div>
 
               {/* Sidebar Column (Right) */}
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-5">
                 {/* Education */}
                 <section>
                   <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Formation</h2>
