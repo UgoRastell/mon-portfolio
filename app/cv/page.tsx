@@ -2,7 +2,7 @@
 
 import { DATA } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
-import { Github, Linkedin, Mail, MapPin, Download, Globe } from "lucide-react";
+import { Github, Linkedin, Globe, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,97 +12,116 @@ export default function CVPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white">
+    <div className="min-h-screen bg-zinc-100 p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white print:block">
       {/* Print Button */}
       <div className="print-hidden fixed bottom-8 right-8 z-50">
-        <Button onClick={handlePrint} className="gap-2">
-          <Download className="w-4 h-4" />
+        <Button onClick={handlePrint} className="gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
           Télécharger PDF
         </Button>
       </div>
 
       {/* CV Container (A4) */}
-      <div className="bg-white w-full max-w-[210mm] min-h-[297mm] p-[10mm] shadow-bold border-2 border-black relative print:shadow-none print:border-none print:w-full print:h-full print:p-0 print:max-w-none">
+      <div 
+        className="bg-white w-[210mm] min-h-[297mm] mx-auto shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black relative print:shadow-none print:border-0 print:w-full print:h-full print:m-0 print:overflow-hidden"
+        style={{ padding: "15mm" }} 
+      >
         
-        {/* Header */}
-        <header className="border-b-2 border-black pb-6 mb-6 flex justify-between items-start gap-6">
-          <div className="flex-1 space-y-4">
+        {/* Header / Hero Style */}
+        <header className="border-b-4 border-black pb-6 mb-6 flex justify-between items-start gap-8">
+          <div className="flex-1 flex flex-col justify-between h-full">
             <div>
-              <h1 className="text-4xl font-black uppercase tracking-tight">{DATA.name}</h1>
-              <p className="text-xl font-bold text-gray-600 mt-1">{DATA.title}</p>
+              <h1 className="text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-2">
+                {DATA.name}
+              </h1>
+              <p className="text-lg font-bold bg-black text-white inline-block px-2 py-1 mb-4 transform -rotate-1">
+                {DATA.title}
+              </p>
+              <p className="text-xs text-zinc-600 max-w-md text-justify font-medium leading-relaxed border-l-4 border-zinc-200 pl-3">
+                {DATA.about}
+              </p>
             </div>
-            
-            <p className="text-sm text-gray-600 max-w-md leading-relaxed">
-              {DATA.about}
-            </p>
 
-            <div className="flex flex-wrap gap-3 text-sm font-bold">
+            <div className="flex flex-wrap gap-4 mt-4 text-xs font-bold">
+               {/* Contact info placeholder if you had them in DATA */}
+               <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
+                  <Mail className="w-3 h-3" /> ugo.rastell@example.com
+               </div>
+               {/* 
+               <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
+                  <Phone className="w-3 h-3" /> +33 6 00 00 00 00
+               </div>
+               */}
               {DATA.socials.github && (
-                <Link href={DATA.socials.github} className="flex items-center gap-1 hover:underline">
-                  <Github className="w-4 h-4" />
+                <Link href={DATA.socials.github} className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50 hover:bg-black hover:text-white transition-colors">
+                  <Github className="w-3 h-3" />
                   GitHub
                 </Link>
               )}
               {DATA.socials.linkedin && (
-                <Link href={DATA.socials.linkedin} className="flex items-center gap-1 hover:underline">
-                  <Linkedin className="w-4 h-4" />
+                <Link href={DATA.socials.linkedin} className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50 hover:bg-black hover:text-white transition-colors">
+                  <Linkedin className="w-3 h-3" />
                   LinkedIn
                 </Link>
               )}
-              {/* Assuming location isn't in DATA explicitly but often nice to have, skipping if not present */}
             </div>
           </div>
 
-          <div className="relative w-32 h-32 border-2 border-black shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          {/* Avatar with heavy shadow */}
+          <div className="relative w-40 h-40 shrink-0 border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-zinc-200">
             <Image
               src={DATA.avatarUrl}
               alt={DATA.name}
               fill
-              className="object-cover"
+              className="object-cover grayscale"
             />
           </div>
         </header>
 
-        <div className="grid grid-cols-3 gap-8">
-          {/* Main Column */}
-          <div className="col-span-2 space-y-6">
+        <div className="grid grid-cols-12 gap-6 h-full">
+          
+          {/* Left Column (Main) */}
+          <div className="col-span-7 flex flex-col gap-6">
+            
             {/* Experience */}
             <section>
-              <h2 className="text-2xl font-black uppercase border-b-2 border-black mb-4 inline-block">Expérience</h2>
-              <div className="space-y-6">
-                {DATA.experience.map((role, index) => (
-                  <div key={index} className="relative pl-4 border-l-2 border-gray-200">
-                    <div className="absolute -left-[5px] top-2 w-2 h-2 bg-black rounded-full" />
+              <div className="flex items-center gap-2 mb-3">
+                 <div className="w-3 h-3 bg-black" />
+                 <h2 className="text-xl font-black uppercase tracking-tight">Expérience</h2>
+              </div>
+              
+              <div className="space-y-4">
+                {DATA.experience.slice(0, 4).map((role, index) => (
+                  <div key={index} className="relative pl-4 border-l-2 border-zinc-300">
                     <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="font-bold text-lg">{role.company}</h3>
-                      <span className="text-xs font-bold bg-black text-white px-2 py-0.5">{role.period}</span>
+                      <h3 className="font-bold text-sm uppercase">{role.company}</h3>
+                      <span className="text-[10px] font-bold border border-black px-1.5 bg-zinc-50">{role.period}</span>
                     </div>
-                    <p className="text-sm font-bold text-gray-600 mb-2">{role.role}</p>
-                    <p className="text-sm text-gray-600 text-justify">{role.description}</p>
+                    <p className="text-xs font-bold text-zinc-800 mb-1">{role.role}</p>
+                    <p className="text-[10px] text-zinc-600 text-justify leading-snug">{role.description}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Projects */}
+            {/* Projects (Condensed) */}
             <section>
-              <h2 className="text-2xl font-black uppercase border-b-2 border-black mb-4 inline-block">Projets</h2>
-              <div className="space-y-4">
-                {DATA.projects.slice(0, 3).map((project) => (
-                  <div key={project.id} className="border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="font-bold">{project.title}</h3>
+              <div className="flex items-center gap-2 mb-3">
+                 <div className="w-3 h-3 bg-black" />
+                 <h2 className="text-xl font-black uppercase tracking-tight">Projets</h2>
+              </div>
+              <div className="grid grid-cols-1 gap-3">
+                {DATA.projects.slice(0, 2).map((project) => (
+                  <div key={project.id} className="border-2 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="font-bold text-sm">{project.title}</h3>
                       {project.link && (
-                        <Link href={project.link} className="text-xs hover:underline flex items-center gap-1">
-                          <Globe className="w-3 h-3" />
-                          Voir
-                        </Link>
+                         <Link href={project.link} className="text-[10px] underline decoration-1 underline-offset-2">Voir</Link>
                       )}
                     </div>
-                    <p className="text-xs text-gray-600 mb-2">{project.desc}</p>
+                    <p className="text-[10px] text-zinc-600 mb-2 line-clamp-2">{project.desc}</p>
                     <div className="flex flex-wrap gap-1">
                       {project.tech.map((t, i) => (
-                        <span key={i} className="text-[10px] border border-black px-1 bg-gray-50">{t}</span>
+                        <span key={i} className="text-[9px] font-bold border border-black px-1 bg-zinc-100">{t}</span>
                       ))}
                     </div>
                   </div>
@@ -111,61 +130,61 @@ export default function CVPage() {
             </section>
           </div>
 
-          {/* Sidebar Column */}
-          <div className="space-y-6">
+          {/* Right Column (Sidebar) */}
+          <div className="col-span-5 flex flex-col gap-6 border-l-2 border-dashed border-zinc-300 pl-6">
+            
             {/* Skills */}
             <section>
-              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Compétences</h2>
-              <div className="flex flex-wrap gap-2">
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Compétences</h2>
+              <div className="flex flex-wrap gap-1.5">
                 {DATA.skills.map((skill, index) => (
-                  <span key={index} className="text-xs font-bold border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] bg-white block w-full text-center">
+                  <span key={index} className="text-[10px] font-bold border-2 border-black px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white">
                     {skill}
                   </span>
                 ))}
               </div>
             </section>
 
-            {/* Technical Skills Detailed */}
+            {/* Technical Stack */}
             <section>
-              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Technique</h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-sm font-bold mb-1">Frontend</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.frontend.join(", ")}</p>
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Stack Technique</h2>
+              <div className="space-y-3">
+                <div className="bg-zinc-50 p-2 border border-black">
+                  <h3 className="text-xs font-black mb-1 uppercase">Frontend</h3>
+                  <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.frontend.join(" • ")}</p>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">Backend</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.backend.join(", ")}</p>
+                <div className="bg-zinc-50 p-2 border border-black">
+                  <h3 className="text-xs font-black mb-1 uppercase">Backend</h3>
+                  <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.backend.join(" • ")}</p>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold mb-1">Outils</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{DATA.technicalSkills.tools.join(", ")}</p>
+                <div className="bg-zinc-50 p-2 border border-black">
+                  <h3 className="text-xs font-black mb-1 uppercase">Outils</h3>
+                  <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.tools.join(" • ")}</p>
                 </div>
               </div>
             </section>
 
             {/* Education */}
             <section>
-              <h2 className="text-xl font-black uppercase border-b-2 border-black mb-4 inline-block">Formation</h2>
-              <div className="space-y-4">
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Formation</h2>
+              <div className="space-y-3">
                 {DATA.education.map((edu, index) => (
-                  <div key={index} className="border-l-2 border-black pl-3">
-                    <h3 className="font-bold text-sm">{edu.school}</h3>
-                    <p className="text-xs text-gray-600">{edu.degree}</p>
-                    <p className="text-xs font-bold mt-1">{edu.period}</p>
+                  <div key={index} className="group">
+                    <h3 className="font-bold text-xs">{edu.school}</h3>
+                    <p className="text-[10px] text-zinc-600 italic">{edu.degree}</p>
+                    <p className="text-[10px] font-bold bg-black text-white inline-block px-1 mt-0.5">{edu.period}</p>
                   </div>
                 ))}
               </div>
             </section>
           </div>
         </div>
-        
-        {/* Footer for Print */}
-        <div className="hidden print:block fixed bottom-0 left-0 w-full text-center text-xs text-gray-400 py-2">
-          CV généré depuis le portfolio de {DATA.name}
+
+        {/* Footer decoration */}
+        <div className="absolute bottom-0 left-0 w-full h-4 bg-black pattern-diagonal-lines text-white flex items-center justify-center text-[8px] uppercase tracking-widest">
+           Portfolio {new Date().getFullYear()} • {DATA.name}
         </div>
       </div>
     </div>
   );
 }
-
