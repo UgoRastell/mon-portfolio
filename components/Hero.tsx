@@ -44,25 +44,40 @@ export default function Hero() {
                     </span>
                 </motion.div>
 
-                {/* Massive Title */}
-                <div className="space-y-0">
-                    <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85]">
-                        Développeur
-                    </motion.h1>
-                    <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-black">
-                        Web &
-                    </motion.h1>
-                    <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85]">
-                        Chef de Projet
-                    </motion.h1>
+                {/* Main Content: Title + Avatar side-by-side */}
+                <div className="grid md:grid-cols-12 gap-6 items-center">
+                    {/* Massive Title */}
+                    <div className="md:col-span-8 space-y-0">
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                            Développeur
+                        </motion.h1>
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-black">
+                            Web &
+                        </motion.h1>
+                        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                            Chef de Projet
+                        </motion.h1>
+                    </div>
+
+                    {/* Avatar - Placed next to title on desktop */}
+                    <motion.div variants={itemVariants} className="md:col-span-4 flex md:justify-end mt-8 md:mt-0">
+                        <div className="relative w-48 h-48 md:w-72 md:h-72 aspect-square">
+                            <div className="absolute inset-0 bg-black translate-x-2 translate-y-2"></div>
+                            <Image
+                                src={DATA.avatarUrl || "/placeholder-user.jpg"}
+                                alt={DATA.name}
+                                fill
+                                className="object-cover border-2 border-black bg-zinc-100 grayscale"
+                                priority
+                            />
+                        </div>
+                    </motion.div>
                 </div>
 
-                {/* Bottom Section: Description, Avatar, Buttons */}
-                <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start mt-8 border-t-2 border-zinc-100 pt-8">
-
-                    {/* Description & Buttons */}
-                    <motion.div variants={itemVariants} className="md:col-span-7 space-y-8">
-                        <p className="text-xl md:text-2xl font-medium text-zinc-600 max-w-2xl leading-relaxed">
+                {/* Bottom Section: Description & Buttons */}
+                <div className="grid md:grid-cols-12 gap-8 items-start mt-4 border-t-2 border-zinc-100 pt-8">
+                    <motion.div variants={itemVariants} className="md:col-span-8 space-y-8">
+                        <p className="text-xl md:text-2xl font-medium text-zinc-600 max-w-3xl leading-relaxed">
                             {DATA.description}
                         </p>
 
@@ -77,20 +92,6 @@ export default function Hero() {
                                     En savoir plus
                                 </Button>
                             </Link>
-                        </div>
-                    </motion.div>
-
-                    {/* Avatar - Smaller and stylized */}
-                    <motion.div variants={itemVariants} className="md:col-span-5 flex md:justify-end">
-                        <div className="relative w-48 h-48 md:w-64 md:h-64">
-                            <div className="absolute inset-0 bg-black translate-x-2 translate-y-2"></div>
-                            <Image
-                                src={DATA.avatarUrl || "/placeholder-user.jpg"}
-                                alt={DATA.name}
-                                fill
-                                className="object-cover border-2 border-black bg-zinc-100 grayscale"
-                                priority
-                            />
                         </div>
                     </motion.div>
                 </div>
