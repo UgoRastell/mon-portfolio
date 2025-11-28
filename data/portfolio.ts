@@ -18,7 +18,7 @@ export const DATA = {
     {
       company: "Comité régional de Normandie de Gymnastique",
       role: "Développeur Web",
-      period: "2022 - 2026",
+      period: "Sept 2022 - Août 2026",
       description: "Gestion et maintenance des sites WordPress, développement d'outils internes sur mesure.",
     },
     {
