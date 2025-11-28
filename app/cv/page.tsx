@@ -68,7 +68,7 @@ export default function CV() {
             </div>
           </header>
 
-          <div className="flex flex-col gap-8 h-full">
+          <div className="flex flex-col gap-10">
             {/* Profile */}
             <section>
               <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3 flex items-center gap-2">
@@ -80,16 +80,16 @@ export default function CV() {
               </p>
             </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {/* Main Column (Left) */}
-              <div className="md:col-span-2 flex flex-col gap-8">
+              <div className="md:col-span-2 flex flex-col gap-10">
                 {/* Experience */}
-                <section className="flex-1">
+                <section>
                   <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4 flex items-center gap-2">
                     <span className="bg-black text-white px-2 py-0.5 text-sm">02</span>
                     Expérience
                   </h2>
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     {DATA.experience.map((exp, i) => (
                       <div key={i} className="relative pl-4 border-l-4 border-zinc-200 hover:border-black transition-colors">
                         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
@@ -105,11 +105,11 @@ export default function CV() {
               </div>
 
               {/* Sidebar Column (Right) */}
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-10">
                 {/* Education */}
                 <section>
                   <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-4">Formation</h2>
-                  <div className="space-y-5">
+                  <div className="space-y-6">
                     {DATA.education.map((edu, i) => (
                       <div key={i} className="border-l-2 border-black pl-3">
                         <h3 className="font-bold text-sm leading-tight mb-0.5">{edu.degree}</h3>
@@ -121,9 +121,9 @@ export default function CV() {
                 </section>
 
                 {/* Skills */}
-                <section className="flex-1">
+                <section>
                   <h2 className="text-lg font-black uppercase border-b-2 border-black pb-1 mb-3">Compétences</h2>
-                  <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-6">
 
                     {/* Frontend */}
                     <div>
