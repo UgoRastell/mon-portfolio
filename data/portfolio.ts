@@ -1,8 +1,8 @@
 export const DATA = {
   name: "Ugo Rastell",
   title: "Développeur Web Full Stack & Chef de Projet Digital",
-  description: "Étudiant à la Normandie Web School, je recherche une alternance en développement web. Je conçois des solutions numériques performantes et esthétiques.",
-  about: "Étudiant en Master 'Manager de l’ingénierie numérique' à la Normandie Web School, je suis passionné par le développement web Full Stack (Symfony, C# / .NET, React). Fort d'une double compétence en gestion de projet agile et en développement technique, je cherche une alternance pour concevoir des solutions numériques innovantes et performantes.",
+  description: "Diplômé de l'EEMI, je recherche une alternance en développement web. Je conçois des solutions numériques performantes et esthétiques.",
+  about: "Étudiant en Master 'Manager de l’ingénierie numérique' à l'EEMI - Ecole Européenne des Métiers de l'Internet, je suis passionné par le développement web Full Stack (Symfony, C# / .NET, React). Fort d'une double compétence en gestion de projet agile et en développement technique, je cherche une alternance pour concevoir des solutions numériques innovantes et performantes.",
   avatarUrl: "/me.jpg",
   skills: [
     "HTML5 / CSS3",
@@ -48,13 +48,13 @@ export const DATA = {
   ],
   education: [
     {
-      school: "Normandie Web School",
+      school: "EEMI - Ecole Européenne des Métiers de l'Internet",
       degree: "Master Manager de l’ingénierie numérique",
       period: "2024 - 2026",
     },
     {
-      school: "Normandie Web School",
-      degree: "Bachelor Chef de Projet Digital",
+      school: "EEMI - Ecole Européenne des Métiers de l'Internet",
+      degree: "Chef de projets digitaux Option Développement Web",
       period: "2021 - 2024",
     },
     {
