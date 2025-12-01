@@ -129,7 +129,6 @@ export default function CVPage() {
                                 <div className="bg-white p-1 border border-black">
                                     <QRCode value={project.link} size={40} />
                                 </div>
-                                <span className="text-[8px] font-bold uppercase tracking-tighter">Demo</span>
                             </div>
                         )}
                     </div>
