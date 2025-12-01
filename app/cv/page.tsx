@@ -12,7 +12,7 @@ export default function CVPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-100 p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white print:block">
+    <div className="min-h-screen bg-zinc-100 p-4 md:p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white print:block">
       {/* Print Button */}
       <div className="print-hidden fixed bottom-8 right-8 z-50">
         <Button onClick={handlePrint} className="gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
@@ -22,8 +22,7 @@ export default function CVPage() {
 
       {/* CV Container (A4) */}
       <div 
-        className="bg-white w-[210mm] min-h-[297mm] mx-auto shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black relative print:shadow-none print:border-0 print:w-full print:h-full print:m-0 print:overflow-hidden"
-        style={{ padding: "15mm" }} 
+        className="bg-white w-full max-w-[210mm] min-h-[297mm] mx-auto shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black relative print:shadow-none print:border-0 print:w-full print:h-full print:m-0 print:overflow-hidden p-6 md:p-[15mm]"
       >
         
         {/* Header / Hero Style */}
