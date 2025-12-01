@@ -27,13 +27,13 @@ export default function CVPage() {
       >
         
         {/* Header / Hero Style */}
-        <header className="border-b-4 border-black pb-6 mb-6 flex justify-between items-start gap-8">
+        <header className="border-b-4 border-black pb-4 mb-4 flex justify-between items-start gap-6">
           <div className="flex-1 flex flex-col justify-between h-full">
             <div>
-              <h1 className="text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-2">
+              <h1 className="text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-1">
                 {DATA.name}
               </h1>
-              <p className="text-lg font-bold bg-black text-white inline-block px-2 py-1 mb-4 transform -rotate-1">
+              <p className="text-lg font-bold bg-black text-white inline-block px-2 py-1 mb-3 transform -rotate-1">
                 {DATA.title}
               </p>
               <p className="text-xs text-zinc-600 max-w-md text-justify font-medium leading-relaxed border-l-4 border-zinc-200 pl-3">
@@ -41,7 +41,7 @@ export default function CVPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-4 text-xs font-bold">
+            <div className="flex flex-wrap gap-3 mt-3 text-xs font-bold">
                {/* Contact info placeholder if you had them in DATA */}
                <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
                   <Mail className="w-3 h-3" /> ugo.rastell@example.com
@@ -77,19 +77,19 @@ export default function CVPage() {
           </div>
         </header>
 
-        <div className="grid grid-cols-12 gap-6 h-full">
+        <div className="grid grid-cols-12 gap-5 h-full">
           
           {/* Left Column (Main) */}
-          <div className="col-span-7 flex flex-col gap-6">
+          <div className="col-span-7 flex flex-col gap-5">
             
             {/* Experience */}
             <section>
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 mb-2">
                  <div className="w-3 h-3 bg-black" />
                  <h2 className="text-xl font-black uppercase tracking-tight">Expérience</h2>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {DATA.experience.slice(0, 4).map((role, index) => (
                   <div key={index} className="relative pl-4 border-l-2 border-zinc-300">
                     <div className="flex justify-between items-baseline mb-1">
@@ -105,20 +105,20 @@ export default function CVPage() {
 
             {/* Projects (Condensed) */}
             <section>
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 mb-2">
                  <div className="w-3 h-3 bg-black" />
                  <h2 className="text-xl font-black uppercase tracking-tight">Projets</h2>
               </div>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="grid grid-cols-1 gap-2">
                 {DATA.projects.slice(0, 2).map((project) => (
-                  <div key={project.id} className="border-2 border-black p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
+                  <div key={project.id} className="border-2 border-black p-2.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
                     <div className="flex justify-between items-center mb-1">
                       <h3 className="font-bold text-sm">{project.title}</h3>
                       {project.link && (
                          <Link href={project.link} className="text-[10px] underline decoration-1 underline-offset-2">Voir</Link>
                       )}
                     </div>
-                    <p className="text-[10px] text-zinc-600 mb-2 line-clamp-2">{project.desc}</p>
+                    <p className="text-[10px] text-zinc-600 mb-1.5 line-clamp-2">{project.desc}</p>
                     <div className="flex flex-wrap gap-1">
                       {project.tech.map((t, i) => (
                         <span key={i} className="text-[9px] font-bold border border-black px-1 bg-zinc-100">{t}</span>
@@ -131,11 +131,11 @@ export default function CVPage() {
           </div>
 
           {/* Right Column (Sidebar) */}
-          <div className="col-span-5 flex flex-col gap-6 border-l-2 border-dashed border-zinc-300 pl-6">
+          <div className="col-span-5 flex flex-col gap-5 border-l-2 border-dashed border-zinc-300 pl-5">
             
             {/* Skills */}
             <section>
-              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Compétences</h2>
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-2 inline-block">Compétences</h2>
               <div className="flex flex-wrap gap-1.5">
                 {DATA.skills.map((skill, index) => (
                   <span key={index} className="text-[10px] font-bold border-2 border-black px-2 py-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white">
@@ -147,18 +147,18 @@ export default function CVPage() {
 
             {/* Technical Stack */}
             <section>
-              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Stack Technique</h2>
-              <div className="space-y-3">
-                <div className="bg-zinc-50 p-2 border border-black">
-                  <h3 className="text-xs font-black mb-1 uppercase">Frontend</h3>
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-2 inline-block">Stack Technique</h2>
+              <div className="space-y-2">
+                <div className="bg-zinc-50 p-1.5 border border-black">
+                  <h3 className="text-xs font-black mb-0.5 uppercase">Frontend</h3>
                   <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.frontend.join(" • ")}</p>
                 </div>
-                <div className="bg-zinc-50 p-2 border border-black">
-                  <h3 className="text-xs font-black mb-1 uppercase">Backend</h3>
+                <div className="bg-zinc-50 p-1.5 border border-black">
+                  <h3 className="text-xs font-black mb-0.5 uppercase">Backend</h3>
                   <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.backend.join(" • ")}</p>
                 </div>
-                <div className="bg-zinc-50 p-2 border border-black">
-                  <h3 className="text-xs font-black mb-1 uppercase">Outils</h3>
+                <div className="bg-zinc-50 p-1.5 border border-black">
+                  <h3 className="text-xs font-black mb-0.5 uppercase">Outils</h3>
                   <p className="text-[10px] text-zinc-600 leading-tight">{DATA.technicalSkills.tools.join(" • ")}</p>
                 </div>
               </div>
@@ -166,8 +166,8 @@ export default function CVPage() {
 
             {/* Education */}
             <section>
-              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-3 inline-block">Formation</h2>
-              <div className="space-y-3">
+              <h2 className="text-lg font-black uppercase border-b-2 border-black mb-2 inline-block">Formation</h2>
+              <div className="space-y-2">
                 {DATA.education.map((edu, index) => (
                   <div key={index} className="group">
                     <h3 className="font-bold text-xs">{edu.school}</h3>
