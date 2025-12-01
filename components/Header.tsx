@@ -16,7 +16,7 @@ export default function Header() {
                     <Link href="/cv" className="hover:underline decoration-2 underline-offset-4">CV</Link>
                 </nav>
                 <Link 
-                    href="mailto:urastell@protonmail.com" 
+                    href={`mailto:${DATA.socials.email}`}
                     className="hidden md:inline-block bg-black text-white px-6 py-2 font-bold border-2 border-black hover:bg-white hover:text-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
                     Contact

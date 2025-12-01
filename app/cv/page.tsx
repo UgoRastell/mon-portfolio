@@ -44,7 +44,7 @@ export default function CVPage() {
             <div className="flex flex-wrap gap-3 mt-3 text-xs font-bold">
                {/* Contact info placeholder if you had them in DATA */}
                <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
-                  <Mail className="w-3 h-3" /> ugo.rastell@example.com
+                  <Mail className="w-3 h-3" /> {DATA.socials.email}
                </div>
                {/* 
                <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">

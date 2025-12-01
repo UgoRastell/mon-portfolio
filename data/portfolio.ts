@@ -60,6 +60,7 @@ export const DATA = {
   socials: {
     github: "https://github.com/UgoRastell",
     linkedin: "https://www.linkedin.com/in/ugo-rastell",
+    email: "urastell@protonmail.com",
   },
   projects: [
     {
