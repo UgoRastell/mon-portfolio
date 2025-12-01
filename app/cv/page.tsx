@@ -15,7 +15,12 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-zinc-100 p-4 md:p-8 flex flex-col items-center gap-8 print:p-0 print:bg-white print:block">
       {/* Print Button */}
-      <div className="print-hidden fixed bottom-8 right-8 z-50">
+      <div className="print-hidden fixed bottom-8 right-8 z-50 flex gap-4">
+        <Link href="/">
+            <Button variant="outline" className="gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all bg-white">
+                Retour
+            </Button>
+        </Link>
         <Button onClick={handlePrint} className="gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
           Télécharger PDF
         </Button>
