@@ -2,9 +2,10 @@
 
 import { DATA } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
-import { Github, Linkedin, Globe, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import QRCode from "react-qr-code";
 
 export default function CVPage() {
   const handlePrint = () => {
@@ -111,17 +112,26 @@ export default function CVPage() {
               <div className="grid grid-cols-1 gap-2">
                 {DATA.projects.slice(0, 2).map((project) => (
                   <div key={project.id} className="border-2 border-black p-2.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
-                    <div className="flex justify-between items-center mb-1">
-                      <h3 className="font-bold text-sm">{project.title}</h3>
-                      {project.link && (
-                         <Link href={project.link} className="text-[10px] underline decoration-1 underline-offset-2">Voir</Link>
-                      )}
-                    </div>
-                    <p className="text-[10px] text-zinc-600 mb-1.5 line-clamp-2">{project.desc}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {project.tech.map((t, i) => (
-                        <span key={i} className="text-[9px] font-bold border border-black px-1 bg-zinc-100">{t}</span>
-                      ))}
+                    <div className="flex justify-between items-start mb-1">
+                        <div>
+                            <h3 className="font-bold text-sm">{project.title}</h3>
+                            <p className="text-[10px] text-zinc-600 mb-1.5 line-clamp-2">{project.desc}</p>
+                            <div className="flex flex-wrap gap-1 mb-1">
+                                {project.tech.map((t, i) => (
+                                    <span key={i} className="text-[9px] font-bold border border-black px-1 bg-zinc-100">{t}</span>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        {/* QR Code */}
+                        {project.link && project.link !== "#" && (
+                            <div className="ml-2 flex flex-col items-center gap-0.5 shrink-0">
+                                <div className="bg-white p-1 border border-black">
+                                    <QRCode value={project.link} size={40} />
+                                </div>
+                                <span className="text-[8px] font-bold uppercase tracking-tighter">Demo</span>
+                            </div>
+                        )}
                     </div>
                   </div>
                 ))}
