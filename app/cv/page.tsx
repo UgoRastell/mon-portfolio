@@ -2,7 +2,7 @@
 
 import { DATA } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Globe, Linkedin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import QRCode from "react-qr-code";
@@ -51,11 +51,11 @@ export default function CVPage() {
                <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
                   <Mail className="w-3 h-3" /> {DATA.socials.email}
                </div>
-               {/* 
-               <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
-                  <Phone className="w-3 h-3" /> +33 6 00 00 00 00
-               </div>
-               */}
+               {DATA.socials.tel && (
+                <div className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50">
+                    <Phone className="w-3 h-3" /> {DATA.socials.tel}
+                </div>
+               )}
               {DATA.socials.github && (
                 <Link href={DATA.socials.github} className="flex items-center gap-1 border border-black px-2 py-1 bg-zinc-50 hover:bg-black hover:text-white transition-colors">
                   <Github className="w-3 h-3" />
@@ -119,7 +119,14 @@ export default function CVPage() {
                   <div key={project.id} className="border-2 border-black p-2.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
                     <div className="flex justify-between items-start mb-1">
                         <div>
-                            <h3 className="font-bold text-sm">{project.title}</h3>
+                            <div className="flex items-center gap-2">
+                                <h3 className="font-bold text-sm">{project.title}</h3>
+                                {project.link && project.link !== "#" && (
+                                    <Link href={project.link} target="_blank" className="text-zinc-600 hover:text-black print:hidden">
+                                        <Globe className="w-3 h-3" />
+                                    </Link>
+                                )}
+                            </div>
                             <p className="text-[10px] text-zinc-600 mb-1.5 line-clamp-2">{project.desc}</p>
                             <div className="flex flex-wrap gap-1 mb-1">
                                 {project.tech.map((t, i) => (

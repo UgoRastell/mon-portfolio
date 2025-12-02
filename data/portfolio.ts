@@ -25,19 +25,19 @@ export const DATA = {
       company: "Comité régional de Normandie de Gymnastique",
       role: "Développeur Web en Alternance",
       period: "Sept 2022 - Présent",
-      description: "Pilotage de la maintenance évolutive et corrective du parc de sites WordPress. Conception et développement d'outils internes sur mesure pour automatiser les processus administratifs et améliorer la productivité. Mise en place de bonnes pratiques de sécurité et d'optimisation des performances.",
+      description: "Pilotage de la maintenance évolutive et corrective du parc de sites WordPress. Conception d'outils internes automatisant les processus administratifs, réduisant significativement le temps de traitement manuel. Optimisation des performances web et renforcement de la sécurité.",
     },
     {
       company: "Comité régional de Normandie de Gymnastique",
       role: "Créateur de Contenu Digital",
       period: "Nov 2021 - Juil 2022",
-      description: "Production et post-production (montage) de contenus vidéos hebdomadaires. Définition et exécution de la stratégie de diffusion sur les réseaux sociaux ayant accru l'engagement de l'audience de 20%.",
+      description: "Production et post-production de contenus vidéos hebdomadaires. Stratégie de diffusion social media ayant généré une croissance de l'engagement de 20% et renforcé la visibilité de la marque.",
     },
     {
       company: "Comité régional de Normandie de Gymnastique",
       role: "Support Informatique (Stage)",
       period: "Mai 2018 - 2019",
-      description: "Maintenance préventive et corrective du parc informatique. Assistance technique de premier niveau et configuration des postes de travail pour une équipe de 10 collaborateurs.",
+      description: "Maintenance préventive et corrective du parc informatique pour une équipe de 10 collaborateurs. Assistance technique niveau 1 et configuration optimale des postes de travail garantissant la continuité opérationnelle.",
     },
   ],
   education: [
@@ -51,16 +51,12 @@ export const DATA = {
       degree: "Chef de projets digitaux Option Développement Web",
       period: "2021 - 2024",
     },
-    {
-      school: "Lycée Blaise Pascal",
-      degree: "Baccalauréat STI2D",
-      period: "2020 - 2021",
-    },
   ],
   socials: {
     github: "https://github.com/UgoRastell",
     linkedin: "https://www.linkedin.com/in/ugo-rastell",
     email: "urastell@protonmail.com",
+    tel: "+33 6 00 00 00 00",
   },
   projects: [
     {
