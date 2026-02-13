@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20">
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Projets Sélectionnés</h2>
+        <section id="projects" aria-labelledby="projects-title" className="py-20">
+            <h2 id="projects-title" className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Projets Sélectionnés</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {DATA.projects.map((project) => (
                     <Card key={project.id} className="h-full group hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 flex flex-col">

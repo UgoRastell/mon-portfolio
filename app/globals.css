@@ -50,6 +50,29 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+/* Focus visible - brutaliste */
+*:focus-visible {
+  outline: 3px solid black;
+  outline-offset: 2px;
+}
+
+/* Hero stagger animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
 @media print {
   @page {
     margin: 0;

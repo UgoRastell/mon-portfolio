@@ -1,19 +1,22 @@
 import Link from "next/link";
 import { DATA } from "@/data/portfolio";
+import NavLinks from "@/components/NavLinks";
 
 export default function Header() {
     return (
         <header className="fixed top-0 w-full z-50 bg-white border-b-2 border-black">
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:border-2 focus:border-black"
+            >
+                Aller au contenu
+            </a>
             <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
                 <Link href="/" className="font-black text-2xl tracking-tighter uppercase hover:underline decoration-4 underline-offset-4">
                     {DATA.name}
                 </Link>
-                <nav className="hidden md:flex gap-8 text-base font-bold uppercase tracking-wide">
-                    <Link href="#about" className="hover:underline decoration-2 underline-offset-4">À propos</Link>
-                    <Link href="#skills" className="hover:underline decoration-2 underline-offset-4">Skills</Link>
-                    <Link href="#projects" className="hover:underline decoration-2 underline-offset-4">Projets</Link>
-                    <Link href="#experience" className="hover:underline decoration-2 underline-offset-4">Expérience</Link>
-                    <Link href="/cv" className="hover:underline decoration-2 underline-offset-4">CV</Link>
+                <nav aria-label="Navigation principale" className="hidden md:flex gap-8 text-base font-bold uppercase tracking-wide">
+                    <NavLinks />
                 </nav>
                 <Link 
                     href={`mailto:${DATA.socials.email}`}

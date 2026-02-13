@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white">
+    <main id="main-content" className="min-h-screen bg-background text-foreground selection:bg-black selection:text-white">
       <Header />
       <div className="max-w-5xl mx-auto px-6">
         <Hero />
@@ -18,7 +18,6 @@ export default function Home() {
         <Experience />
         <Education />
         <Projects />
-        <div className="h-20"></div>
       </div>
       <Footer />
     </main>

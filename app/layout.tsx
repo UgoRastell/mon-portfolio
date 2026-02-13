@@ -12,13 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ugorastell.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Ugo Rastell - Développeur Web & Créatif",
   description: "Portfolio de Ugo Rastell, développeur web spécialisé en React, Next.js et design d'interface.",
   openGraph: {
     title: "Ugo Rastell - Développeur Web & Créatif",
     description: "Portfolio de Ugo Rastell, développeur web spécialisé en React, Next.js et design d'interface.",
-    url: "https://ugorastell.com",
+    url: siteUrl,
     siteName: "Ugo Rastell Portfolio",
     images: [
       {
@@ -44,11 +47,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ugo Rastell",
+    url: siteUrl,
+    jobTitle: "Développeur Web Full Stack & Chef de Projet Digital",
+    sameAs: [
+      "https://github.com/UgoRastell",
+      "https://www.linkedin.com/in/ugo-rastell",
+    ],
+  };
+
   return (
     <html lang="fr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
