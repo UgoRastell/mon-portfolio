@@ -71,6 +71,14 @@ export const DATA: PortfolioData = {
     },
     {
       id: 2,
+      title: "CampGym — Plateforme d'inscription aux stages",
+      desc: "Application web complète pour la gestion et l'inscription en ligne aux stages de gymnastique du Comité régional de Normandie. Inscription familles/clubs, panier, paiement Stripe, panneau admin (statistiques, commandes, promotions, gestion des rôles), messagerie, génération de factures PDF et notifications.",
+      tech: ["React", "Vite", "Supabase", "Stripe", "Turborepo", "Vercel Functions", "shadcn/ui"],
+      link: "https://escal-gym.fr",
+      sourceUrl: "https://github.com/UgoRastell/camp-gym3.0",
+    },
+    {
+      id: 3,
       title: "Plateforme E-commerce",
       desc: "Développement d'une application complète de vente en ligne avec architecture MVC. Gestion des produits, panier, commandes et paiement sécurisé.",
       tech: ["Symfony 6", "MySQL", "Stripe API", "Twig", "Bootstrap"],
